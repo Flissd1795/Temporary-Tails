@@ -70,6 +70,16 @@ def test_user_password_hashing(app):
         assert user.check_password('securepassword')  # Check the password against the hash
         assert not user.check_password('wrongpassword')  # Ensure wrong password fails
 
+"""Tests to see whether user representation works correctly"""
+def test_user_repr(app):
+    with app.app_context():
+        user = User(username='Fliss', email='fliss@fliss.com', password='password')
+        db.session.add(user)
+        db.session.commit()
+
+        assert repr(user) == f"<User {user.id} {user.username}>"
+
+
 """Tests to see whether user authentication works correctly."""
 
 """Tests to see whether user authorization works correctly."""

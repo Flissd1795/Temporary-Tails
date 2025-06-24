@@ -15,4 +15,4 @@ class Pet(db.Model):
     owner_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     def __repr__(self):
-        return f"<Pet {self.id} {self.name}"
+        return f"<Pet {self.id} {self.name}>"
